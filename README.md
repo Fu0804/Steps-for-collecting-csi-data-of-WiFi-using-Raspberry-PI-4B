@@ -34,9 +34,9 @@ The Raspberry PI 4B installs the nexmon patch and nexmon_csi and captures the cs
 2. 确保接口已启动：`ifconfig wlan0 up`
 3. 使用 nexutil 和生成的参数配置提取器（使用参数调整 -v 的参数）：`nexutil -Iwlan0 -s500 -b -l34 -vm+IBEQGIAgAAESIzRFWqu6q7qrsAAAAAAAAAAAAAAAAAAA==`
 4. 启用监控模式：``iw phy `iw dev wlan0 info | gawk '/wiphy/ {printf "phy" $2}'` interface add mon0 type monitor``
+5. `ifconfig mon0 up`  
    ![image](https://github.com/Fu0804/Steps-for-collecting-csi-data-of-WiFi-using-Raspberry-PI-4B/assets/151499353/b69fd713-44f8-44d2-811a-00a95d1e07ce)
-5. `ifconfig mon0 up`
-6. 采集CSI数据：`tcpdump -i wlan0 dst port 5500 -vv -w test.pcap -c 60`
+7. 采集CSI数据：`tcpdump -i wlan0 dst port 5500 -vv -w test.pcap -c 60`
 ## 三、每次开机后务必注意事项
 ### 步骤
 1. `cd /home/pi/nexmon`
